@@ -1,0 +1,162 @@
+/* The Persian font (--fa-font) comes from src/fonts/*.css, chosen at build time via the @nexus-font alias. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 245 245 247;        /* #F5F5F7 */
+  --surface: 255 255 255;   /* #FFFFFF */
+  --surface2: 250 250 252;
+  --ink: 29 29 31;          /* #1D1D1F */
+  --ink2: 110 110 115;      /* #6E6E73 — readable secondary text */
+  --ink3: 160 160 166;
+  --line: 0 0 0;
+  --line-a: 0.08;
+  --accent: 0 122 255;      /* #007AFF */
+  --warn: 255 204 0;        /* #FFCC00 */
+  --warn-ink: 158 112 0;
+  --crit: 255 59 48;        /* #FF3B30 */
+  --ok: 52 199 89;          /* #34C759 */
+  --expired: 142 36 36;     /* muted dark red */
+  --hover: 0 0 0 / 0.04;
+  --sel: 0 122 255 / 0.1;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: 22 22 24;
+  --surface: 30 30 32;
+  --surface2: 36 36 38;
+  --ink: 245 245 247;
+  --ink2: 152 152 157;
+  --ink3: 99 99 102;
+  --line: 255 255 255;
+  --line-a: 0.09;
+  --accent: 10 132 255;
+  --warn: 255 214 10;
+  --warn-ink: 255 214 10;
+  --crit: 255 69 58;
+  --ok: 48 209 88;
+  --expired: 190 80 80;
+  --hover: 255 255 255 / 0.05;
+  --sel: 10 132 255 / 0.18;
+  color-scheme: dark;
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-bg text-ink font-sans text-base antialiased;
+  }
+  /* Persian: system fonts with good Arabic-script coverage; slightly larger line-height */
+  html[lang='fa'] body {
+    font-family: var(--fa-font), 'Segoe UI Variable Text', 'Segoe UI', Tahoma, system-ui, sans-serif;
+  }
+  html[lang='fa'] .section-title {
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  html,
+  body {
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  body.popup {
+    width: 380px;
+    height: 580px;
+    overflow: hidden;
+  }
+  body.popup #root {
+    height: 100%;
+  }
+  * {
+    border-color: rgb(var(--line) / var(--line-a));
+  }
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent) / 0.6);
+    outline-offset: 1px;
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--line) / 0.14);
+    border-radius: 10px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--line) / 0.24);
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface rounded-[14px] shadow-card;
+  }
+  .hairline {
+    border-color: rgb(var(--line) / var(--line-a));
+  }
+  .hov:hover {
+    background: rgb(var(--hover));
+  }
+  .sel {
+    background: rgb(var(--sel)) !important;
+  }
+  .input {
+    @apply w-full h-9 px-3 rounded-[10px] bg-surface text-sm text-ink placeholder:text-ink3 transition-shadow;
+    box-shadow: inset 0 0 0 1px rgb(var(--line) / 0.11);
+  }
+  .input:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgb(var(--accent) / 0.8), 0 0 0 3px rgb(var(--accent) / 0.18);
+  }
+  textarea.input {
+    @apply h-auto py-2 leading-[20px];
+  }
+  .label {
+    @apply text-xs text-ink2 font-medium;
+  }
+  .section-title {
+    @apply text-[11.5px] font-semibold uppercase tracking-[0.06em] text-ink2;
+  }
+  .skeleton {
+    background: linear-gradient(90deg, rgb(var(--line) / 0.05) 0px, rgb(var(--line) / 0.1) 80px, rgb(var(--line) / 0.05) 160px);
+    background-size: 800px 100%;
+    @apply animate-shimmer rounded-md;
+  }
+  .glass {
+    background: rgb(var(--surface) / 0.78);
+    backdrop-filter: saturate(180%) blur(20px);
+  }
+  /* page grid: consistent container + 24px gutters everywhere */
+  .page {
+    @apply mx-auto w-full max-w-[1400px] px-8 pb-10 pt-7;
+  }
+  .grid-12 {
+    @apply grid grid-cols-12 gap-5;
+  }
+  .text-warn-ink {
+    color: rgb(var(--warn-ink));
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

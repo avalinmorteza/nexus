@@ -1,0 +1,12 @@
+/* Personal build: Peyda (commercial font — not for redistribution).
+   Only the Regular weight is available; the browser synthesizes heavier weights. */
+@font-face {
+  font-family: 'Peyda';
+  src: url('../assets/fonts/Peyda-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  --fa-font: 'Peyda';
+}

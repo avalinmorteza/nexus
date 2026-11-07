@@ -1,0 +1,5 @@
+/* Public release: Vazirmatn variable font (SIL Open Font License 1.1), bundled locally. */
+@import '@fontsource-variable/vazirmatn';
+:root {
+  --fa-font: 'Vazirmatn Variable';
+}

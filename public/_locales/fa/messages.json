@@ -1,0 +1,7 @@
+{
+  "appName": { "message": "NEXUS – مرکز کنترل شخصی" },
+  "appShortName": { "message": "NEXUS" },
+  "appDescription": { "message": "مدیریت دامنه، هاست، اشتراک و لایسنس با یادآور انقضا، تقویم شمسی تمدید و مدیریت کارها. کاملاً محلی و آفلاین." },
+  "cmdPopup": { "message": "باز کردن پنجره‌ی NEXUS" },
+  "cmdDashboard": { "message": "باز کردن داشبورد NEXUS" }
+}

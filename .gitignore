@@ -1,0 +1,20 @@
+# dependencies & builds
+node_modules/
+dist/
+release/build/
+release/*.zip
+*.log
+
+# personal data — never publish
+imports/
+scripts/build-provider-import.ts
+*.nexus-backup.json
+nexus-backup-*.json
+
+# commercial font (owner's machine only; builds fall back to Vazirmatn)
+src/assets/fonts/Peyda*
+
+# local tooling
+.claude/
+.vscode/
+scripts/_*

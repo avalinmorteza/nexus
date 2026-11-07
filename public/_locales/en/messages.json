@@ -1,0 +1,7 @@
+{
+  "appName": { "message": "NEXUS – Personal Control Center" },
+  "appShortName": { "message": "NEXUS" },
+  "appDescription": { "message": "Track domains, hosting, subscriptions and licenses with expiry reminders, a renewal calendar and tasks. 100% local." },
+  "cmdPopup": { "message": "Open NEXUS popup" },
+  "cmdDashboard": { "message": "Open NEXUS dashboard" }
+}
